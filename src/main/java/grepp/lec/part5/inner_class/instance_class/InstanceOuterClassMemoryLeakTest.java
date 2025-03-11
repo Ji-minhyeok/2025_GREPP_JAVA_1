@@ -1,4 +1,4 @@
-package grepp.lec.part5.inner_class;
+package grepp.lec.part5.inner_class.instance_class;
 
 public class InstanceOuterClassMemoryLeakTest {
 
