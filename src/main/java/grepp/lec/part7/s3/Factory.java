@@ -1,6 +1,7 @@
 package grepp.lec.part7.s3;
 
 import grepp.lec.part7.s3.box.*;
+import grepp.lec.part7.s3.component.Packager;
 import grepp.lec.part7.s3.other.Apple;
 import grepp.lec.part7.s3.tools.portable.Hammer;
 import grepp.lec.part7.s3.tools.portable.HandGrinder;
@@ -12,7 +13,31 @@ public class Factory {
     public static void main(String[] args) {
 //        test1();
 //        test2();
-        test3();
+//        test3();
+        test4();
+    }
+
+    private static void test4() {
+
+        Packager<HugeGrinder> grinderPackager = new Packager<>();
+
+        Hammer hammer = new Hammer();
+        ToolBox<Hammer> hammerToolBox = new ToolBox<>(hammer);
+        Packager.closeBox(hammerToolBox);
+
+        HugeGrinder hugeGrinder = new HugeGrinder();
+        ToolBox<HugeGrinder> hugeGrinderToolBox = new ToolBox<>(hugeGrinder);
+        grinderPackager.close(hugeGrinderToolBox);
+        Packager.closeBox(hugeGrinderToolBox);
+//        grinderPackager.close(hammerToolBox);
+
+        HugeCrowbar hugeCrowbar = new HugeCrowbar();
+        ToolBox<HugeCrowbar> crowbarToolBox = new ToolBox<>(hugeCrowbar);
+//        Packager.closePortableBox(crowbarToolBox);
+        Packager.closeInstallableBox(crowbarToolBox);
+
+         Packager.closeBox(crowbarToolBox);
+
     }
 
     private static void test3() {
